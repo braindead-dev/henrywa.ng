@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>henry</title>
+
+    <!-- Meta tags -->
+    <meta property="og:type" content="website">
+    <meta property="twitter:type" content="website">
+    <meta property="og:title" content="henry">
+    <meta property="twitter:title" content="henry">
+    <meta property="og:description" content="henry - my public directory">
+    <meta property="twitter:description" content="henry - my public directory">
+    <meta property="og:image" content="images/icon.png">
+    <meta property="twitter:image" content="images/icon.png">
+    <link href="images/icon.png" rel="shortcut icon">
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="canonical" href="https://henrywa.ng/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="henry">
+    <meta property="og:url" content="https://henrywa.ng/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+
+    <!-- Custom Highlight -->
+    <style>
+        #projectsMobile {
+            display: none;
+        }
+
+        .highlight {
+            animation: highlightEffect 1.5s forwards;
+        }
+        
+        @keyframes highlightEffect {
+            0% { background-color: #3877ff90; }
+            100% { background-color: transparent; }
+        }
+
+        button {
+            padding: 0;
+            border: none;
+            background: none;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        #sleepingOneko {
+            animation: sleepingOnekoAnimation 1s steps(1, end) infinite;
+            background-position: -64px 0px;  /* Initial position based on the sprite set */
+        }
+
+        @keyframes sleepingOnekoAnimation {
+            50% { background-position: -64px -32px; }  /* Alternate position based on the sprite set */
+        }
+
+        @media screen and (max-width: 600px) {
+            /* Hide the table format */
+            #projectsTable {
+                display: none;
+            }
+            /* Display the mobile format */
+            #projectsMobile {
+                display: block;
+            }
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <script src="./oneko.js"></script>
+
+    <header>
+    <h1>henrywa.ng <button style="background: none; border: none; cursor: pointer;"><div id="sleepingOneko" style="width: 32px; height: 32px; background-image: url('./oneko.gif'); image-rendering: pixelated;" title="click me :)"></div></button></h1>
+    <nav>
+    <a href="https://henrywa.ng" rel="noreferrer" target="_blank">home</a> /
+    <a href="#" id="contactBtn" rel="noreferrer" target="_blank">contact</a> 
+    </nav>
+    </header>
+    
+    <h2>About me</h2>
+    <p>My name is Henry Wang (hence the domain, henrywa.ng) and I'm a high schooler in the Bay Area. I love computer science, math, nature, and wrestling. I'm an ENTP-A personality type, and during my free time, I enjoy coding, listening to music, and going on walks.</p>
+
+    <h2>Socials</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td><a href="https://instagram.com/b0i" rel="noreferrer" target="_blank">@b0i</a></td>
+                <td>insta</td>
+            </tr>
+            <tr>
+                <td><a href="https://snapchat.com/add/henry00c" rel="noreferrer" target="_blank">@henry00c</a></td>
+                <td>snap</td>
+            </tr>
+            <tr>
+                <td><a href="https://twitter.com/henry0284928382" rel="noreferrer" target="_blank">@henry0284928382</a></td>
+                <td>twitter</td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/braindead-dev" rel="noreferrer" target="_blank">@braindead-dev</a></td>
+                <td>github</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <br>
+    <h2>Projects</h2>
+    <div id="projectsTable">
+        <table>
+            <tbody>
+                <tr>
+                    <td>SearchMe</td>
+                    <td>Personal OSINT tool for e-presence monitoring (private)</td>
+                </tr>
+                <tr>
+                    <td>GSearch</td>
+                    <td>Discord self-bot with OSINT and other capabilities (private)</td>
+                </tr>
+                <tr>
+                    <td>SSN Gen</td>
+                    <td>Auto-generate novelty SSN card scans with gag info (private)</td>
+                </tr>
+                <tr>
+                    <td>henry.directory</td>
+                    <td>Archive of publically leaked data (retired)</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/braindead-dev/CashBot" rel="noreferrer" target="_blank">Cashbot</a></td>
+                    <td>Discord bot that handles Cash App as a payment gateway</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/braindead-dev/FilePump" rel="noreferrer" target="_blank">FilePump</a></td>
+                    <td>Lightweight `.exe` file size bloater for security testing purposes.</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/braindead-dev/google-calendar-app" rel="noreferrer" target="_blank">Google Calendar</a></td>
+                    <td>Google Calendar app for Windows, made with Electron</td>
+                </tr>
+                <tr>
+                    <td>PlannerGPT</td>
+                    <td>Automatically fill your calendar, aided by ChatGPT (in progress)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="projectsMobile">
+    </div>    
+    
+    <br>
+    <div id="contactSection">
+        <strong>Email</strong> <span style="opacity: .5;">–</span> contact@henrywa[.]ng<br>
+        <strong>Telegram</strong> <span style="opacity: .5;">–</span> <a href="https://t.me/henry99x">@henry99x</a></p>
+    </div>
+
+    <script>
+        
+        // Spawn Oneko upon clicking icon
+        document.querySelector('#sleepingOneko').addEventListener('click', function() {
+            const rect = this.getBoundingClientRect();
+            spawnOneko(rect.left + 16, rect.top + 16);
+            this.remove();
+        });
+
+        // Custom Highlight Script
+        document.getElementById('contactBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+            let contactSection = document.getElementById('contactSection');
+            highlightSection(contactSection);
+        });
+
+        function highlightSection(section) {
+            section.classList.add('highlight');
+            setTimeout(() => {
+                section.classList.remove('highlight');
+            }, 1500); 
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            populateMobileProjects();
+        });
+
+        function populateMobileProjects() {
+            const projectsTable = document.querySelector('#projectsTable tbody');
+            const projectsMobile = document.querySelector('#projectsMobile');
+            const mobileTable = document.createElement('table'); // Create a new table for mobile format
+
+            for (const row of projectsTable.rows) {
+                const mobileRow = document.createElement('tr'); // Each project gets its own row
+                const mobileCell = document.createElement('td'); // Each row has a single cell
+
+                let titleContent;
+                const titleCell = row.cells[0];
+                const description = row.cells[1].innerText;
+
+                // Check if title has a link
+                const linkElement = titleCell.querySelector('a');
+                if (linkElement) {
+                    titleContent = document.createElement('a');
+                    titleContent.href = linkElement.href;
+                    titleContent.target = "_blank";
+                    titleContent.rel = "noreferrer";
+                    titleContent.textContent = linkElement.textContent;
+                    titleContent.style.fontWeight = "bold";
+                } else {
+                    titleContent = document.createElement('strong');
+                    titleContent.textContent = titleCell.textContent;
+                }
+                
+                const descElement = document.createElement('p');
+                descElement.textContent = description;
+
+                mobileCell.appendChild(titleContent);
+                mobileCell.appendChild(descElement);
+                mobileRow.appendChild(mobileCell);
+                mobileTable.appendChild(mobileRow);
+            }
+
+            projectsMobile.appendChild(mobileTable);
+        }
+
+
+
+    </script>
+    
+
+</body>
+</html>
