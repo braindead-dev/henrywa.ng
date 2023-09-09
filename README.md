@@ -1,6 +1,6 @@
-# Henry Wang's Personal Website
+# Personal Website - henrywa.ng 
 
-Welcome to the repository for [henrywa.ng](http://henrywa.ng), my personal website. This repository contains the frontend code for the homepage of the site.
+Repository for [henrywa.ng](http://henrywa.ng), my personal website. This repository contains the frontend code for the homepage of the site.
 
 ## Features
 
