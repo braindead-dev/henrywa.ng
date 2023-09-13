@@ -25,9 +25,15 @@
     <!-- Fonts and Styles -->
     <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Custom Highlight -->
     <style>
+        .fa {
+            font-size: 22px;  /* adjust this value as per your preference */
+            vertical-align: middle;
+            margin-right: 10px;  /* added a bit of margin for separation from the text */
+        }
+
         #projectsMobile {
             display: none;
         }
@@ -79,9 +85,10 @@
     <header>
     <h1>henrywa.ng <button style="background: none; border: none; cursor: pointer;"><div id="sleepingOneko" style="width: 32px; height: 32px; background-image: url('./oneko.gif'); image-rendering: pixelated;" title="click me :)"></div></button></h1>
     <nav>
-    <a href="https://henrywa.ng" rel="noreferrer" target="_blank">home</a> /
-    <a href="#" id="contactBtn" rel="noreferrer" target="_blank">contact</a> /
-    <a href="https://github.com/braindead-dev/henrywa.ng" rel="noreferrer" target="_blank">source</a>
+    <a href="https://henrywa.ng" rel="noreferrer" target="_blank">Home</a> /
+    <a href="https://blog.henrywa.ng" rel="noreferrer" target="_blank">Blog</a> /
+    <a href="#" id="contactBtn" rel="noreferrer" target="_blank">Contact</a> /
+    <a href="https://github.com/braindead-dev/henrywa.ng" rel="noreferrer" target="_blank">Source</a>
     </nav>
     </header>
     
@@ -92,21 +99,17 @@
     <table>
         <tbody>
             <tr>
-                <td><a href="https://instagram.com/b0i" rel="noreferrer" target="_blank">@b0i</a></td>
-                <td>insta</td>
+                <td><i class="fa fa-instagram"></i> <a href="https://instagram.com/b0i" rel="noreferrer" target="_blank">@b0i</a></td>
             </tr>
             <tr>
-                <td><a href="https://twitter.com/henry0284928382" rel="noreferrer" target="_blank">@henry0284928382</a></td>
-                <td>twitter</td>
+                <td><i class="fa fa-twitter"></i> <a href="https://twitter.com/henry0284928382" rel="noreferrer" target="_blank">@henry0284928382</a></td>
             </tr>
             <tr>
-                <td><a href="https://github.com/braindead-dev" rel="noreferrer" target="_blank">@braindead-dev</a></td>
-                <td>github</td>
+                <td><i class="fa fa-github"></i> <a href="https://github.com/braindead-dev" rel="noreferrer" target="_blank">@braindead-dev</a></td>
             </tr>
             <tr>
-                <td><a href="https://www.linkedin.com/in/henry00c/" rel="noreferrer" target="_blank">@henry00c</a></td>
-                <td>linkedin</td>
-            </tr>
+                <td><i class="fa fa-linkedin"></i> <a href="https://www.linkedin.com/in/henry00c/" rel="noreferrer" target="_blank">@henry00c</a></td>
+            </tr>            
         </tbody>
     </table>
     
@@ -180,6 +183,7 @@
         });
 
         function highlightSection(section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'center' });
             section.classList.add('highlight');
             setTimeout(() => {
                 section.classList.remove('highlight');
