@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>henry</title>
+
+    <!-- Meta tags -->
+    <meta property="og:type" content="website">
+    <meta property="twitter:type" content="website">
+    <meta property="og:title" content="henry">
+    <meta property="twitter:title" content="henry">
+    <meta property="og:description" content="henry - my public directory">
+    <meta property="twitter:description" content="henry - my public directory">
+    <meta property="og:image" content="images/icon.png">
+    <meta property="twitter:image" content="images/icon.png">
+    <link href="images/icon.png" rel="shortcut icon">
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="canonical" href="https://henrywa.ng/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="henry">
+    <meta property="og:url" content="https://henrywa.ng/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        button {
+            padding: 0;
+            border: none;
+            background: none;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        #sleepingOneko {
+            animation: sleepingOnekoAnimation 1s steps(1, end) infinite;
+            background-position: -64px 0px;  /* Initial position based on the sprite set */
+        }
+
+        @keyframes sleepingOnekoAnimation {
+            50% { background-position: -64px -32px; }  /* Alternate position based on the sprite set */
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <script src="./oneko.js"></script>
+
+    <header>
+    <h1>henrywa.ng <button style="background: none; border: none; cursor: pointer;"><div id="sleepingOneko" style="width: 32px; height: 32px; background-image: url('./oneko.gif'); image-rendering: pixelated;" title="click me :)"></div></button></h1>
+    </header>
+
+    <div style="text-align: center;">
+        <img src="https://henrywa.ng/images/monkey.jpg" alt="Wild Japanese macaque bathing in a natural hot spring at Jigokudani Monkey Park (地獄谷野猿公苑)." width="50%">
+        <pre>Err 404. Click <a href="https://henrywa.ng" rel="noreferrer" target="_blank">here</a> to return home.</pre>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="contactSection">
+        <strong>Email</strong> <span style="opacity: .5;">–</span> contact@henrywa[.]ng<br>
+        <strong>Telegram</strong> <span style="opacity: .5;">–</span> <a href="https://t.me/henry99x">@henry99x</a></p>
+    </div>
+
+    <script>
+        // Spawn Oneko upon clicking icon
+        document.querySelector('#sleepingOneko').addEventListener('click', function() {
+            const rect = this.getBoundingClientRect();
+            spawnOneko(rect.left + 16, rect.top + 16);
+            this.remove();
+        });
+
+    </script>
+
+</body>
+</html>
