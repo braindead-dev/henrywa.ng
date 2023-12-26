@@ -4,14 +4,10 @@ Repository for [henrywa.ng](http://henrywa.ng), my personal website. This reposi
 
 ## Features
 
-- **Responsive Design**: The website is built with [`new.css`](https://github.com/xz/new.css) to be viewable across various devices.
+- **Responsive Design**: The website is built with [`new.css`](https://github.com/xz/new.css) to be viewable across various devices. Delpoyed on Vercel. 
 - **Social Sharing**: Ready-to-use meta tags for platforms like Twitter and Facebook.
 - **Icons**: Custom icon for the site located at `images/icon.png`, as well as social icons from [`Font Awesome`](https://fontawesome.com/).
   
-## Note
-
-Please be aware that this repository might not always be in sync with the current deployment of my website. The repo and the live site source aren't directly linked; I maintain and update this repository at my discretion.
-
 ## Contents
 
 - `index.html`: The main homepage for the website.
