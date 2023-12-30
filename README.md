@@ -1,6 +1,6 @@
-# Personal Website - henrywa.ng 
+# Personal Website 
 
-Repository for [henrywa.ng](http://henrywa.ng), my personal website. This repository contains the frontend code for the homepage of the site.
+Repository for [henrywa.ng](http://henrywa.ng) and [henr.ee](http://henr.ee), my personal homepage. This repository contains the frontend code for the site.
 
 ## Features
 
