@@ -24,37 +24,15 @@
     <meta property="og:url" content="https://henrywa.ng/">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Fonts and Styles -->
-    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <style>
-        body {
+    body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        }
+    }
 
-        button {
-            padding: 0;
-            border: none;
-            background: none;
-            vertical-align: middle;
-            cursor: pointer;
-        }
-
-        #sleepingOneko {
-            animation: sleepingOnekoAnimation 1s steps(1, end) infinite;
-            background-position: -64px 0px;  /* Initial position based on the sprite set */
-        }
-
-        @keyframes sleepingOnekoAnimation {
-            50% { background-position: -64px -32px; }  /* Alternate position based on the sprite set */
-        }
-
-        /* Desktop sidebar */
-        .sidebar {
+    /* Desktop sidebar */
+    .sidebar {
         display: none;
         position: fixed;
         left: 0;
@@ -64,77 +42,77 @@
         background-color: #000;
         color: #fff;
         padding: 20px;
-        }
+    }
 
-        .sidebar .logo {
+    .sidebar .logo {
         margin-bottom: 40px;
-        }
+    }
 
-        .sidebar a {
+    .sidebar a {
         color: #fff;
         text-decoration: none;
         display: block;
         padding: 10px 0;
         font-size: 16px;
-        }
+    }
 
-        /* Mobile header */
-        .header {
+    /* Mobile header */
+    .header {
         background-color: #000;
         color: #fff;
         padding: 7px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        }
+    }
 
-        .profile {
+    .profile {
         text-align: center;
         padding: 30px;
-        }
+    }
 
-        .profile-pic {
+    .profile-pic {
         width: 115px;
         height: 115px;
         border-radius: 50%;
         object-fit: cover;
         margin-top: 25px;
         margin-bottom: 10px;
-        }
+    }
 
-        .gallery {
+    .gallery {
         column-count: 2;
         column-gap: 15px;
         padding: 15px;
-        }
+    }
 
-        .gallery-item {
+    .gallery-item {
         break-inside: avoid;
         margin-bottom: 15px;
-        }
+    }
 
-        .gallery-item img {
+    .gallery-item img {
         width: 100%;
         height: auto;
         display: block;
-        }
+    }
 
-        h2 {
+    h2 {
         font-size: 17px;
         color: black;
         font-weight: 550;
         margin-bottom: 25px;
         letter-spacing: 0.5px;
-        }
+    }
 
-        p {
+    p {
         font-size: 14px;
         color: grey;
         font-weight: 200;
         font-family: 'Roboto', sans-serif;
-        }
+    }
 
-        .dropdown-menu {
+    .dropdown-menu {
         display: none;
         background-color: #000;
         color: #fff;
@@ -144,69 +122,69 @@
         left: 0;
         padding: 20px 0;
         text-align: left;
-        }
+    }
 
-        .dropdown-menu a {
+    .dropdown-menu a {
         color: #fff;
         text-decoration: none;
         font-size: 16px;
         display: block;
         padding: 10px 0;
         margin-left: 10px;
-        }
+    }
 
-        .dropdown-menu a:hover {
+    .dropdown-menu a:hover {
         background-color: #444;
-        }
+    }
 
-        .dropdown.active .dropdown-menu {
+    .dropdown.active .dropdown-menu {
         display: block;
-        }
+    }
 
-        .menu-icon {
+    .menu-icon {
         cursor: pointer;
-        }
+    }
 
-        /* Desktop styles */
-        @media (min-width: 768px) {
+    /* Desktop styles */
+    @media (min-width: 768px) {
         .header {
-            display: none;
+        display: none;
         }
 
         .sidebar {
-            display: block;
+        display: block;
         }
 
         .main-content {
-            margin-left: 220px;
+        margin-left: 220px;
         }
 
         .gallery {
-            column-count: 3;
-            padding: 30px;
+        column-count: 3;
+        padding: 30px;
         }
-        }
+    }
 
-        /* Large desktop styles */
-        @media (min-width: 1200px) {
+    /* Large desktop styles */
+    @media (min-width: 1200px) {
         .gallery {
-            column-count: 4;
+        column-count: 4;
         }
-        }
+    }
 
-        /* Small desktop/tablet styles */
-        @media (max-width: 1024px) and (min-width: 768px) {
+    /* Small desktop/tablet styles */
+    @media (max-width: 1024px) and (min-width: 768px) {
         .gallery {
-            column-count: 3;
+        column-count: 3;
         }
-        }
+    }
 
-        /* Mobile styles */
-        @media (max-width: 767px) {
+    /* Mobile styles */
+    @media (max-width: 767px) {
         .gallery {
-            column-count: 2;
+        column-count: 2;
         }
-        }
+    }
     </style>
 </head>
 
