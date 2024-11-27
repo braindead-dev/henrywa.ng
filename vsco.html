@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>henry</title>
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+
+    <!-- Meta tags -->
+    <meta property="og:type" content="website">
+    <meta property="twitter:type" content="website">
+    <meta property="og:title" content="henry">
+    <meta property="twitter:title" content="henry">
+    <meta property="og:description" content="henry - my public directory">
+    <meta property="twitter:description" content="henry - my public directory">
+    <meta property="og:image" content="images/icon.png">
+    <meta property="twitter:image" content="images/icon.png">
+    <link href="images/icon.png" rel="shortcut icon">
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="canonical" href="https://henrywa.ng/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="henry">
+    <meta property="og:url" content="https://henrywa.ng/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts and Styles -->
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        }
+
+        button {
+            padding: 0;
+            border: none;
+            background: none;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        #sleepingOneko {
+            animation: sleepingOnekoAnimation 1s steps(1, end) infinite;
+            background-position: -64px 0px;  /* Initial position based on the sprite set */
+        }
+
+        @keyframes sleepingOnekoAnimation {
+            50% { background-position: -64px -32px; }  /* Alternate position based on the sprite set */
+        }
+
+        /* Desktop sidebar */
+        .sidebar {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 180px;
+        height: 100vh;
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        }
+
+        .sidebar .logo {
+        margin-bottom: 40px;
+        }
+
+        .sidebar a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px 0;
+        font-size: 16px;
+        }
+
+        /* Mobile header */
+        .header {
+        background-color: #000;
+        color: #fff;
+        padding: 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .profile {
+        text-align: center;
+        padding: 30px;
+        }
+
+        .profile-pic {
+        width: 115px;
+        height: 115px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        }
+
+        .gallery {
+        column-count: 2;
+        column-gap: 15px;
+        padding: 15px;
+        }
+
+        .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 15px;
+        }
+
+        .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        }
+
+        h2 {
+        font-size: 17px;
+        color: black;
+        font-weight: 550;
+        margin-bottom: 25px;
+        letter-spacing: 0.5px;
+        }
+
+        p {
+        font-size: 14px;
+        color: grey;
+        font-weight: 200;
+        font-family: 'Roboto', sans-serif;
+        }
+
+        .dropdown-menu {
+        display: none;
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        padding: 20px 0;
+        text-align: left;
+        }
+
+        .dropdown-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        padding: 10px 0;
+        margin-left: 10px;
+        }
+
+        .dropdown-menu a:hover {
+        background-color: #444;
+        }
+
+        .dropdown.active .dropdown-menu {
+        display: block;
+        }
+
+        .menu-icon {
+        cursor: pointer;
+        }
+
+        /* Desktop styles */
+        @media (min-width: 768px) {
+        .header {
+            display: none;
+        }
+
+        .sidebar {
+            display: block;
+        }
+
+        .main-content {
+            margin-left: 220px;
+        }
+
+        .gallery {
+            column-count: 3;
+            padding: 30px;
+        }
+        }
+
+        /* Large desktop styles */
+        @media (min-width: 1200px) {
+        .gallery {
+            column-count: 4;
+        }
+        }
+
+        /* Small desktop/tablet styles */
+        @media (max-width: 1024px) and (min-width: 768px) {
+        .gallery {
+            column-count: 3;
+        }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 767px) {
+        .gallery {
+            column-count: 2;
+        }
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Desktop Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <a href="/">
+        <img src="./vsco_images/icon.png" alt="Logo" width="32" height="32">
+      </a>
+    </div>
+    <a href="https://github.com/braindead-dev/VSCO-gallery-clone/">github project</a>
+    <a href="https://vsco.co/henry00c/gallery">visit VSCO profile</a>
+  </div>
+
+  <!-- Mobile Header -->
+  <div class="header">
+    <div class="logo">
+      <a href="/">
+        <img src="./vsco_images/icon.png" alt="Logo" width="32" height="32">
+      </a>
+    </div>
+
+    <div class="dropdown">
+      <div class="menu-icon" onclick="toggleMenu()">
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <line x1="21" y1="8.66943" x2="3" y2="8.66943" stroke="currentColor" stroke-width="2"></line>
+          <line x1="21" y1="17.627" x2="3" y2="17.627" stroke="currentColor" stroke-width="2"></line>
+        </svg>
+      </div>
+
+      <div class="dropdown-menu">
+        <a href="https://github.com/braindead-dev/VSCO-gallery-clone/">github project</a>
+        <a href="https://vsco.co/henry00c/gallery">visit VSCO profile</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="profile">
+      <img src="./vsco_images/avatar.jpg" alt="Profile Picture" class="profile-pic">
+      <a href="https://vsco.co/henry00c/gallery" style="text-decoration: none;">
+        <h2>henry</h2>
+      </a>
+      <a href="https://vsco.co/henry00c/gallery" style="text-decoration: none;">
+        <p>henry00c</p>
+      </a>
+    </div>
+
+    <div class="gallery">
+      <div class="column" id="column1"></div>
+      <div class="column" id="column2"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const dropdown = document.querySelector('.dropdown');
+      dropdown.classList.toggle('active');
+    }
+  
+    // Function to dynamically load images
+    (function () {
+      const column1 = document.getElementById('column1');
+      const column2 = document.getElementById('column2');
+      let imageIndex = 1;
+
+      let columnHeights = [0, 0]; // Index 0 for column1, index 1 for column2
+
+      function loadImage(index) {
+        const imgSrc = `./vsco_images/image${index}.jpg`;
+        const img = new Image();
+        img.src = imgSrc;
+
+        img.onload = function () {
+          const galleryItem = document.createElement('div');
+          galleryItem.className = 'gallery-item';
+          galleryItem.appendChild(img);
+
+          // Get the aspect ratio to estimate height
+          const aspectRatio = img.naturalHeight / img.naturalWidth;
+
+          // Determine which column has less total height
+          const columnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
+          const column = columnIndex === 0 ? column1 : column2;
+
+          column.appendChild(galleryItem);
+
+          // Update the total height of the column
+          columnHeights[columnIndex] += aspectRatio;
+
+          // Load the next image
+          loadImage(index + 1);
+        };
+
+        img.onerror = function () {
+          // Image doesn't exist; stop loading further images
+        };
+      }
+
+      // Start loading images from image1.jpg
+      loadImage(imageIndex);
+      })();
+ </script>
+  
+</body>
+
+</html>
