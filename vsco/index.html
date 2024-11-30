@@ -246,48 +246,39 @@
       dropdown.classList.toggle('active');
     }
   
-    // Function to dynamically load images
+    // Function to load images
     (function () {
       const column1 = document.getElementById('column1');
       const column2 = document.getElementById('column2');
-      let imageIndex = 1;
+      const totalImages = 10; // Set this to your total number of images
 
-      let columnHeights = [0, 0]; // Index 0 for column1, index 1 for column2
+      // Split images between columns
+      const midPoint = Math.ceil(totalImages / 2);
 
-      function loadImage(index) {
-        const imgSrc = `./vsco_images/image${index}.jpg`;
-        const img = new Image();
-        img.src = imgSrc;
-
-        img.onload = function () {
-          const galleryItem = document.createElement('div');
-          galleryItem.className = 'gallery-item';
-          galleryItem.appendChild(img);
-
-          // Get the aspect ratio to estimate height
-          const aspectRatio = img.naturalHeight / img.naturalWidth;
-
-          // Determine which column has less total height
-          const columnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
-          const column = columnIndex === 0 ? column1 : column2;
-
-          column.appendChild(galleryItem);
-
-          // Update the total height of the column
-          columnHeights[columnIndex] += aspectRatio;
-
-          // Load the next image
-          loadImage(index + 1);
-        };
-
-        img.onerror = function () {
-          // Image doesn't exist; stop loading further images
-        };
+      // Load first half into column1
+      for (let i = 1; i <= midPoint; i++) {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = `./vsco_images/image${i}.jpg`;
+        
+        galleryItem.appendChild(img);
+        column1.appendChild(galleryItem);
       }
 
-      // Start loading images from image1.jpg
-      loadImage(imageIndex);
-      })();
+      // Load second half into column2
+      for (let i = midPoint + 1; i <= totalImages; i++) {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        
+        const img = document.createElement('img');
+        img.src = `./vsco_images/image${i}.jpg`;
+        
+        galleryItem.appendChild(img);
+        column2.appendChild(galleryItem);
+      }
+    })();
  </script>
   
 </body>
