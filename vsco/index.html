@@ -247,47 +247,64 @@
     }
   
     // Function to dynamically load images
-    (function () {
+    (async function() {
+      const images = [];
+      let imageIndex = 1;
+      const maxImages = 100; // Set a reasonable limit to prevent infinite loops
+
+      // Function to load an image
+      async function loadImage(index) {
+        return new Promise((resolve, reject) => {
+          const imgSrc = `./vsco_images/image${index}.jpg`;
+          const img = new Image();
+
+          img.onload = () => {
+            images.push(img);
+            resolve(true);
+          };
+
+          img.onerror = () => {
+            resolve(false); // Image doesn't exist
+          };
+
+          img.src = imgSrc;
+        });
+      }
+
+      // Load images sequentially until an image fails to load
+      while (imageIndex <= maxImages) {
+        const result = await loadImage(imageIndex);
+        if (result) {
+          imageIndex++;
+        } else {
+          break;
+        }
+      }
+
+      // Now all images are loaded and stored in the 'images' array
+      // Proceed to distribute them into columns and display
+
       const column1 = document.getElementById('column1');
       const column2 = document.getElementById('column2');
-      let imageIndex = 1;
 
       let columnHeights = [0, 0]; // Index 0 for column1, index 1 for column2
 
-      function loadImage(index) {
-        const imgSrc = `./vsco_images/image${index}.jpg`;
-        const img = new Image();
-        img.src = imgSrc;
+      images.forEach(img => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.appendChild(img);
 
-        img.onload = function () {
-          const galleryItem = document.createElement('div');
-          galleryItem.className = 'gallery-item';
-          galleryItem.appendChild(img);
+        const aspectRatio = img.naturalHeight / img.naturalWidth;
 
-          // Get the aspect ratio to estimate height
-          const aspectRatio = img.naturalHeight / img.naturalWidth;
+        const columnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
+        const column = columnIndex === 0 ? column1 : column2;
 
-          // Determine which column has less total height
-          const columnIndex = columnHeights[0] <= columnHeights[1] ? 0 : 1;
-          const column = columnIndex === 0 ? column1 : column2;
+        column.appendChild(galleryItem);
 
-          column.appendChild(galleryItem);
+        columnHeights[columnIndex] += aspectRatio;
+      });
 
-          // Update the total height of the column
-          columnHeights[columnIndex] += aspectRatio;
-
-          // Load the next image
-          loadImage(index + 1);
-        };
-
-        img.onerror = function () {
-          // Image doesn't exist; stop loading further images
-        };
-      }
-
-      // Start loading images from image1.jpg
-      loadImage(imageIndex);
-      })();
+    })();
  </script>
   
 </body>
