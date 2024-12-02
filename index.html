@@ -84,7 +84,15 @@
     <script src="./oneko.js"></script>
 
     <header>
-    <h1>henry wang <button style="background: none; border: none; cursor: pointer;"><div id="sleepingOneko" style="width: 32px; height: 32px; background-image: url('./oneko.gif'); image-rendering: pixelated;" title="click me :)"></div></button></h1>
+    <h1>henry wang 
+        <button style="background: none; border: none; cursor: pointer;">
+            <div class="oneko-container" style="position: relative; width: 32px; height: 32px;">
+                <img src="./bed.png" style="position: absolute; top: 13px; left: 0; width: 32px; height: 19px;" id="onekoBed">
+                <div id="sleepingOneko" style="position: absolute; top: -5px; left: 0; width: 32px; height: 32px; background-image: url('./oneko.gif'); image-rendering: pixelated;" title="click me :)">   
+                </div>
+            </div>
+        </button>
+    </h1>
     <nav>
     <a href="/" rel="noreferrer">Home</a> /
     <a href="#" id="contactBtn" rel="noreferrer" target="_blank">Contact</a> /
@@ -182,7 +190,7 @@
         
         // Spawn Oneko upon clicking icon
         document.querySelector('#sleepingOneko').addEventListener('click', function() {
-            const rect = this.getBoundingClientRect();
+            const rect = this.parentElement.getBoundingClientRect();
             spawnOneko(rect.left + 16, rect.top + 16);
             this.remove();
         });
