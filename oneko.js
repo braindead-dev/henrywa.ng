@@ -85,7 +85,7 @@ function spawnOneko(initialX, initialY) {
     nekoEl.id = "oneko";
     nekoEl.style.width = "32px";
     nekoEl.style.height = "32px";
-    nekoEl.style.position = "fixed";
+    nekoEl.style.position = "absolute";
     nekoEl.style.pointerEvents = "none";
     nekoEl.style.backgroundImage = "url('./oneko.gif')";
     nekoEl.style.imageRendering = "pixelated";
@@ -95,12 +95,33 @@ function spawnOneko(initialX, initialY) {
 
     document.body.appendChild(nekoEl);
 
-    document.addEventListener("mousemove",function(){
-      mousePosX = event.clientX;
-      mousePosY = event.clientY;
+    document.addEventListener("mousemove", function(event) {
+      mousePosX = event.pageX; // Changed from clientX
+      mousePosY = event.pageY; // Changed from clientY
     });
 
     window.onekoInterval = setInterval(frame, 100);
+
+    let lastScrollX = window.scrollX;
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", function() {
+      // Calculate the change in scroll position
+      const deltaScrollX = window.scrollX - lastScrollX;
+      const deltaScrollY = window.scrollY - lastScrollY;
+      
+      // Update mouse position by the change in scroll
+      mousePosX += deltaScrollX;
+      mousePosY += deltaScrollY;
+      
+      // Store current scroll position for next event
+      lastScrollX = window.scrollX;
+      lastScrollY = window.scrollY;
+      
+      // Adjust neko position to maintain relative distance to cursor
+      nekoEl.style.left = `${nekoPosX - 16}px`;
+      nekoEl.style.top = `${nekoPosY - 16}px`;
+    });
   }
 
   function setSprite(name, frame) {
