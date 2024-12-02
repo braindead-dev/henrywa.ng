@@ -81,6 +81,27 @@ function spawnOneko(initialX, initialY) {
     ],
   };
 
+  let isReturningToBed = false;
+  let bedTarget = null;
+
+  function returnToBed(bedElement) {
+    isReturningToBed = true;
+    const rect = bedElement.getBoundingClientRect();
+    // Target slightly above the bed to match original position
+    bedTarget = {
+      x: rect.left + 16,
+      y: rect.top + 11
+    };
+    // Remove the mousemove listener so cursor is completely ignored
+    document.removeEventListener("mousemove", handleMouseMove);
+  }
+
+  // Separate the mousemove handler so we can remove it
+  function handleMouseMove(event) {
+    mousePosX = event.pageX;
+    mousePosY = event.pageY;
+  }
+
   function create() {
     nekoEl.id = "oneko";
     nekoEl.style.width = "32px";
@@ -95,10 +116,8 @@ function spawnOneko(initialX, initialY) {
 
     document.body.appendChild(nekoEl);
 
-    document.addEventListener("mousemove", function(event) {
-      mousePosX = event.pageX; // Changed from clientX
-      mousePosY = event.pageY; // Changed from clientY
-    });
+    // Update to use named function for event listener
+    document.addEventListener("mousemove", handleMouseMove);
 
     window.onekoInterval = setInterval(frame, 100);
 
@@ -191,6 +210,57 @@ function spawnOneko(initialX, initialY) {
   }
 
   function frame() {
+    if (isReturningToBed) {
+      // When returning to bed, always move towards bed target
+      const diffX = nekoPosX - bedTarget.x;
+      const diffY = nekoPosY - bedTarget.y;
+      const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
+
+      if (distance < nekoSpeed) {
+        // Remove the moving cat
+        document.body.removeChild(nekoEl);
+        
+        // Recreate the sleeping cat
+        const sleepingOneko = document.createElement('div');
+        sleepingOneko.id = 'sleepingOneko';
+        sleepingOneko.style = 'position: absolute; top: -5px; left: 0; width: 32px; height: 32px; background-image: url(\'./oneko.gif\'); image-rendering: pixelated;';
+        sleepingOneko.title = 'click me :)';
+        
+        sleepingOneko.addEventListener('click', function() {
+          const rect = this.parentElement.getBoundingClientRect();
+          spawnOneko(rect.left + 16, rect.top + 16);
+          this.remove();
+        });
+        
+        const container = document.querySelector('.oneko-container');
+        container.appendChild(sleepingOneko);
+        
+        clearInterval(window.onekoInterval);
+        return;
+      }
+
+      // Use the same animation logic as cursor following
+      frameCount += 1;
+      idleAnimation = null;
+      idleAnimationFrame = 0;
+      idleTime = 0;
+
+      let direction = '';
+      direction += diffY / distance > 0.5 ? "N" : "";
+      direction += diffY / distance < -0.5 ? "S" : "";
+      direction += diffX / distance > 0.5 ? "W" : "";
+      direction += diffX / distance < -0.5 ? "E" : "";
+      setSprite(direction, frameCount);
+
+      nekoPosX -= (diffX / distance) * nekoSpeed;
+      nekoPosY -= (diffY / distance) * nekoSpeed;
+
+      nekoEl.style.left = `${nekoPosX - 16}px`;
+      nekoEl.style.top = `${nekoPosY - 16}px`;
+      return;
+    }
+
+    // Original frame logic for cursor following
     frameCount += 1;
     const diffX = nekoPosX - mousePosX;
     const diffY = nekoPosY - mousePosY;
@@ -229,6 +299,9 @@ function spawnOneko(initialX, initialY) {
     nekoEl.style.top = `${nekoPosY - 16}px`;
     
   }
+
+  // Make returnToBed available globally
+  window.returnToBed = returnToBed;
 
   create();
 

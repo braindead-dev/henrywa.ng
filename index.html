@@ -253,6 +253,13 @@
             projectsMobile.appendChild(mobileTable);
         }
 
+        document.getElementById('onekoBed').addEventListener('click', function() {
+            const oneko = document.getElementById('oneko');
+            if (oneko && window.returnToBed) {
+                window.returnToBed(this);
+            }
+        });
+
     </script>
 
 </body>
