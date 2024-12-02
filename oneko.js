@@ -1,3 +1,8 @@
+// cat addition to website
+// credit: https://github.com/adryd325/oneko.js
+// custom features like bed return and tracking the scroll position by henry
+// original code: https://github.com/adryd325/oneko.js
+
 function spawnOneko(initialX, initialY) {
   const nekoEl = document.createElement("div");
   let nekoPosX = initialX;
