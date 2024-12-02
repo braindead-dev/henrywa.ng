@@ -1,7 +1,3 @@
-// cat addition to website
-// custom features like bed return and tracking the scroll position by henry
-// original code: https://github.com/adryd325/oneko.js
-
 function spawnOneko(initialX, initialY) {
   const nekoEl = document.createElement("div");
   let nekoPosX = initialX;
@@ -104,6 +100,10 @@ function spawnOneko(initialX, initialY) {
   }
 
   function create() {
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const isMouseDevice = !isTouchDevice && !hasCoarsePointer;
+
     nekoEl.id = "oneko";
     nekoEl.style.width = "32px";
     nekoEl.style.height = "32px";
@@ -125,23 +125,21 @@ function spawnOneko(initialX, initialY) {
     let lastScrollX = window.scrollX;
     let lastScrollY = window.scrollY;
 
-    window.addEventListener("scroll", function() {
-      // Calculate the change in scroll position
-      const deltaScrollX = window.scrollX - lastScrollX;
-      const deltaScrollY = window.scrollY - lastScrollY;
-      
-      // Update mouse position by the change in scroll
-      mousePosX += deltaScrollX;
-      mousePosY += deltaScrollY;
-      
-      // Store current scroll position for next event
-      lastScrollX = window.scrollX;
-      lastScrollY = window.scrollY;
-      
-      // Adjust neko position to maintain relative distance to cursor
-      nekoEl.style.left = `${nekoPosX - 16}px`;
-      nekoEl.style.top = `${nekoPosY - 16}px`;
-    });
+    if (isMouseDevice) {
+      window.addEventListener("scroll", function() {
+        const deltaScrollX = window.scrollX - lastScrollX;
+        const deltaScrollY = window.scrollY - lastScrollY;
+        
+        mousePosX += deltaScrollX;
+        mousePosY += deltaScrollY;
+        
+        lastScrollX = window.scrollX;
+        lastScrollY = window.scrollY;
+        
+        nekoEl.style.left = `${nekoPosX - 16}px`;
+        nekoEl.style.top = `${nekoPosY - 16}px`;
+      });
+    }
   }
 
   function setSprite(name, frame) {
@@ -173,7 +171,7 @@ function spawnOneko(initialX, initialY) {
       if (nekoPosX > window.innerWidth - 32) {
         avalibleIdleAnimations.push("scratchWallE");
       }
-      if (nekoPosY > window.innerHeight - 32) {
+      if (nekoPosY > document.documentElement.scrollHeight - 32) {
         avalibleIdleAnimations.push("scratchWallS");
       }
       idleAnimation =
@@ -294,7 +292,7 @@ function spawnOneko(initialX, initialY) {
     nekoPosY -= (diffY / distance) * nekoSpeed;
 
     nekoPosX = Math.min(Math.max(16, nekoPosX), window.innerWidth - 16);
-    nekoPosY = Math.min(Math.max(16, nekoPosY), window.innerHeight - 16);
+    nekoPosY = Math.min(Math.max(16, nekoPosY), document.documentElement.scrollHeight - 16);
     
     nekoEl.style.left = `${nekoPosX - 16}px`;
     nekoEl.style.top = `${nekoPosY - 16}px`;
